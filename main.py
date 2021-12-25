@@ -1,2 +1,4 @@
-for i in range(1,10+1):
-        print(i)
+import math
+
+for i in range(1, 21):
+    print(i // math.gcd(i,))
