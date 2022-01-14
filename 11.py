@@ -5,7 +5,7 @@
 
 import numpy as np
 
-array = np.loadtxt('dato.txt',dtype=int,delimiter=' ')
+array = np.loadtxt('Input/11.txt',dtype=int,delimiter=' ')
 
 lim = np.shape(array)[0]
 cant = 4
