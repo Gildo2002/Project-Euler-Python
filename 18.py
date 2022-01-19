@@ -10,12 +10,6 @@
 
 # Find the maximum total from top to bottom of the triangle below:
 
-# import numpy as np
-
-# array = np.loadtxt('Input/18.txt',dtype=int,delimiter=' ')
-
-# print(np.shape(array))
-
 
 file = open('Input/18.txt','r')
 
@@ -25,9 +19,10 @@ for line in file:
     a = line.split(' ')
     lista.append( [int(i) for i in a])
 
-suma = 0 
+suma = 0
 
-for i in lista:
-    suma += max(i)
+for i in reversed(range(len(lista) - 1)):
+    for j in range(len(lista[i])):
+        lista[i][j] += max(lista[i+1][j],lista[i+1][j+1])
 
-print(suma)
+print(lista[0][0])
