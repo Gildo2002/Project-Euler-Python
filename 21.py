@@ -6,15 +6,32 @@
 
 # Evaluate the sum of all the amicable numbers under 10000.
 
-from eulerlib import prime_numbers as pm
+from eulerlib import primes
+from eulerlib import Divisors
+from numpy import number
 
-def num_Amicable(n:int):
-    nPrime = pm.primes(100)
-    for i in range(len(nPrime)):
-        for j in range(len(nPrime)):
-            for k in range(len(nPrime)):
-                if (( (2 ** n) * i * j) == ((2 ** n) * k) ):
-                    print((2 ** n ) * i * j , (2 ** n) * k )
-    pass
 
-num_Amicable(2)
+def divisores(value:int):
+    lista = div.divisors(value)
+    if len(lista) > 1:
+        lista.pop()
+    return lista
+
+n = 10000
+prime = primes(n)
+div = Divisors(n)
+number = []
+sum_div = []
+suma = 0
+
+for i in range(2,n):
+    if i not in prime:
+        number.append(i)
+
+for a in number:
+    i = sum(divisores(a))
+    b = sum(divisores(i))
+    if (a == b and i > a ):
+        suma += a + i
+
+print(suma)
